@@ -6,8 +6,8 @@ export const Homepage = () => {
     console.log(cart)
     return (
     <div> 
-    cost: {cart.cost}<br/>
-    quantity: {cart.quantity}
+    Cost:  {cart.cost}<br/>
+    Quantity: {cart.quantity}
     </div>
   )
 }

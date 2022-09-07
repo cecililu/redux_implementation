@@ -1,53 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { configureStore } from '@reduxjs/toolkit'
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import { Homepage } from './Homepage';
+import { useDispatch, useSelector } from 'react-redux';
+import { Homepage } from './Homepage.js';
+import { buyCarAction, sellCarAction } from './Global-States/Action-Creator/reducer1Action';
+import { Button, Card, Paper, Typography } from '@mui/material';
 
-//action types
-export const BUY_NOW='buy-car'
-export const SELL_NOW='sell-car'
-export const buyCarAction=()=>{
-  return {
-    type: BUY_NOW,
-  }
-}
-export const sellCarAction=()=>{
-  return {
-    type: SELL_NOW,
-  }
-}
-//reducer
-const initialState={ 
-  cost:0,quantity:0}
-const  reducer1=(state=initialState,action)=>{
-   switch(action.type){
-   case BUY_NOW:{
-    return {
-      ...state,
-      cost: state.cost+100000,
-      quantity:state.quantity+1
-    };
-  }
-  case SELL_NOW:{
-    return {
-      ...state,
-      cost:  state.cost-100000,
-      quantity: state.quantity-1
 
-    }
-  }
-  default:
-  return state
-   } 
-}
 
-//store
-export const store= configureStore({
-  reducer:{
-    reducer1
-  }
-})
+
 
 function App() {
   const dispatch=useDispatch()
@@ -56,9 +16,19 @@ function App() {
   return (
    
     <div className="App">
-      <button onClick={() =>dispatch(buyCarAction())} >click to buy car</button><br/>
-      <button onClick={() =>dispatch(sellCarAction())} disabled={cart.quantity ?false:true} >click to SELL car</button>
-      <Homepage></Homepage>
+      
+      <Paper variant="outlined" sx={{width:'90%',m:4,p:4,alignItems:'center'}}>
+      <Typography   sx={{m:4,color:"red"}} align='center' variant="h4" component="div">BUY A CAR NOW</Typography>
+
+
+       <Paper elevation={3} sx={{p:4}}>
+      <Typography   sx={{m:1,mt:4,}} variant="subtitle1" component="div"><Homepage/></Typography>
+      
+      <Button  sx={{m:1,mt:4}} variant="contained" color="success" onClick={() =>dispatch(buyCarAction())} >click to buy car</Button><br/>
+      <Button  sx={{m:1}}  variant="outlined" color="error"onClick={() =>dispatch(sellCarAction())} disabled={cart.quantity ?false:true} >click to SELL car</Button>
+      </Paper>
+       </Paper>
+      
     </div>
 
   );
