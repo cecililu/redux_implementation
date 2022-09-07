@@ -24,16 +24,16 @@ const  reducer1=(state=initialState,action)=>{
    switch(action.type){
    case BUY_NOW:{
     return {
-      ...initialState,
-      cost: initialState.cost+100000,
-      quantity:initialState.quantity+1
+      ...state,
+      cost: state.cost+100000,
+      quantity:state.quantity+1
     };
   }
   case SELL_NOW:{
     return {
-      ...initialState,
-      cost:  initialState.cost-100000,
-      quantity: initialState.quantity-1
+      ...state,
+      cost:  state.cost-100000,
+      quantity: state.quantity-1
 
     }
   }
@@ -52,11 +52,12 @@ export const store= configureStore({
 function App() {
   const dispatch=useDispatch()
   //console.log(cart);
+  const cart= useSelector((state)=>state.reducer1)
   return (
    
     <div className="App">
       <button onClick={() =>dispatch(buyCarAction())} >click to buy car</button><br/>
-      <button onClick={() =>dispatch(sellCarAction())} >click to SELL car</button>
+      <button onClick={() =>dispatch(sellCarAction())} disabled={cart.quantity ?false:true} >click to SELL car</button>
       <Homepage></Homepage>
     </div>
 
