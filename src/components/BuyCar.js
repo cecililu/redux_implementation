@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Homepage } from './Homepage.js';
-import { buyCarAction, sellCarAction } from './Global-States/Action-Creator/reducer1Action';
+import { buyCarAction, sellCarAction } from '../Global-States/Action-Creator/reducer1Action';
 import { Button, Card, Paper, Typography } from '@mui/material';
+import { Homepage } from './Homepage';
+
 export const BuyCar = () => {
     const dispatch=useDispatch()
     //console.log(cart);

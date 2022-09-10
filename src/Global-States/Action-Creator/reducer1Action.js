@@ -1,6 +1,7 @@
 //action types
  export const BUY_NOW='buy-car'
  export const SELL_NOW='sell-car'
+ 
 
 
 
