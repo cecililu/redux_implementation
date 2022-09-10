@@ -1,5 +1,5 @@
 
-import { Button } from '@mui/material'
+import { Button, Paper, Typography } from '@mui/material'
 
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,13 +15,24 @@ const fetchAPIhandler=async(dispatch)=>{
 
 export const Listcar = () => {
    const dispatch=useDispatch()
-   const data=useSelector((state)=>state.APIreducer)
-   console.log(data)
+   const dat=useSelector((state)=>state.APIreducer)
+   console.log('useSeletor',dat.data)
+   const list=dat.data.map(data=>{
+    return (
+      <Paper key={data.alpha2Code} elevation={3} sx={{p:4,justifyContent: 'center'}}>
+        <Typography   sx={{m:1,mt:4,}} variant="subtitle1" component="div">
+          {data.name}
+        </Typography>
+      </Paper>
+    );
+
+   })
   return (
     <div>
-      <Button  sx={{m:1,mt:4}} variant="contained" color="success" onClick={() =>fetchAPIhandler(dispatch)}>Get CAR LIST</Button>
+      <Button  sx={{m:1,mt:4,mx:4}} variant="contained" color="success" onClick={() =>fetchAPIhandler(dispatch)}>Get CAR LIST</Button>
       {/* { (data.loading) ? "loading..." : data.map(dat=>dat.name) } */}
-      {/* {(data.loading) ? "loading...": data.map(item=>item.name)} */}
+      {( dat.loading) ? "loading...":list}
+    
     
       
     
