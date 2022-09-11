@@ -2,6 +2,7 @@
 import './App.css';
 
 import { BuyCar } from './components/BuyCar';
+import { Counter } from './components/Counter';
 import { Listcar } from './components/Listcar';
 
 
@@ -16,7 +17,7 @@ function App() {
       
       <BuyCar/>
       <Listcar/>
-      
+      <Counter/>
     </div>
 
   );

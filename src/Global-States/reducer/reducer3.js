@@ -1,4 +1,4 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit'
+import { createSlice} from '@reduxjs/toolkit'
 
 
 const counterSlice = createSlice({
@@ -10,10 +10,10 @@ const counterSlice = createSlice({
 
     reducers:{
 
-    increment:(state)=>{
+    incremented:(state)=>{
         state.value += 1
     },
-    decrement:(state)=>{
+    decremented:(state)=>{
         state.value += 1
     }
 
