@@ -32,12 +32,6 @@ export const Listcar = () => {
       <Button  sx={{m:1,mt:4,mx:4}} variant="contained" color="success" onClick={() =>fetchAPIhandler(dispatch)}>Get CAR LIST</Button>
       {/* { (data.loading) ? "loading..." : data.map(dat=>dat.name) } */}
       {( dat.loading) ? "loading...":list}
-    
-    
-      
-    
-
-
     </div>
   )
 }
